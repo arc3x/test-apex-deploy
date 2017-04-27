@@ -8,4 +8,9 @@
         </sf:deploy>
     </target>
 
+    <target name="validate">
+        <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" testLevel="RunLocalTests" rollbackOnError="true" checkOnly="true">
+        </sf:deploy>
+    </target>
+
 </project>
