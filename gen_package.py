@@ -39,8 +39,10 @@ write_xml(text_file, 'ApexClass', classes)
 print classes
 triggers = load('src/triggers', '.trigger')
 write_xml(text_file, 'ApexTrigger', triggers)
+print triggers
 pages = load('src/pages', '.page')
 write_xml(text_file, 'ApexPage', pages)
+print pages
 # close package
 text_file.write('\t<version>39.0</version>\n')
 text_file.write('</Package>\n')

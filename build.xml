@@ -3,42 +3,9 @@
     <property file="build.properties"/>
     <property environment="env"/>
 
-    <!-- Setting default value for username, password and session id properties to empty string
-         so unset values are treated as empty. Without this, ant expressions such as ${sf.username}
-         will be treated literally.
-    -->
-    <!-- <condition property="sf.username" value=""> <not> <isset property="sf.username"/> </not> </condition>
-    <condition property="sf.password" value=""> <not> <isset property="sf.password"/> </not> </condition>
-    <condition property="sf.sessionId" value=""> <not> <isset property="sf.sessionId"/> </not> </condition>
-
-    <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
-        <classpath>
-            <pathelement location="../ant-salesforce.jar" />
-        </classpath>
-    </taskdef> -->
-
-    <!-- Retrieve metadata for all the packages specified under packageNames -->
-    <target name="pullProfiles">
-      <mkdir dir="retrievedProfiles" />
-      <sf:retrieve username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" retrieveTarget="retrievedProfiles" unpackaged="profiles/package.xml" />
-    </target>
-
     <target name="syncCode">
-        <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" testLevel="NoTestRun" rollbackOnError="true">
+        <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" testLevel="RunLocalTests" rollbackOnError="true">
         </sf:deploy>
     </target>
-
-    <!-- <target name="pushProfiles">
-        <delete dir="retrievedProfiles/applications"/>
-        <delete dir="retrievedProfiles/classes"/>
-        <delete dir="retrievedProfiles/objects"/>
-        <delete dir="retrievedProfiles/pages"/>
-        <delete dir="retrievedProfiles/settings"/>
-        <delete dir="retrievedProfiles/tabs"/>
-        <delete file="retrievedProfiles/package.xml"/>
-        <copy file="pushProfilesPackage.xml" tofile="retrievedProfiles/package.xml"/>
-        <sf:deploy username="${sf.target.username}" password="${sf.target.password}" serverurl="${sf.target.serverurl}" maxPoll="${sf.target.maxPoll}" deployRoot="retrievedProfiles" />
-    </target> -->
-
 
 </project>
