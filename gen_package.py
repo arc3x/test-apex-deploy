@@ -8,7 +8,10 @@ def load(path, ext):
             files.extend(filenames)
             break
         for f in files:
-            if (not f.endswith(ext)) or f.endswith('.meta'):
+            print f
+            print os.path.splitext(os.path.basename(f))[1]
+            #if (not f.endswith(ext)) or f.endswith('.meta'):
+            if os.path.splitext(os.path.basename(f))[1] != ext:
                 files.remove(f);
 
     return files;
