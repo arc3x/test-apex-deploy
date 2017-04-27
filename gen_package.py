@@ -41,15 +41,15 @@ text_file.write('<Package xmlns="http://soap.sforce.com/2006/04/metadata">\n')
 # write classes
 classes = load('src/classes', '.cls')
 write_xml(text_file, 'ApexClass', classes)
-print 'classes ' + classes
+print 'classes ' + str(classes)
 # write triggers
 triggers = load('src/triggers', '.trigger')
 write_xml(text_file, 'ApexTrigger', triggers)
-print 'triggers ' + triggers
+print 'triggers ' + str(triggers)
 #write pages
 pages = load('src/pages', '.page')
 write_xml(text_file, 'ApexPage', pages)
-print 'pages ' + pages
+print 'pages ' + str(pages)
 # close package
 text_file.write('\t<version>39.0</version>\n')
 text_file.write('</Package>\n')
