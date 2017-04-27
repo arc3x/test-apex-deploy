@@ -23,6 +23,10 @@
       <sf:retrieve username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" retrieveTarget="retrievedProfiles" unpackaged="profiles/package.xml" />
     </target>
 
+    <target name="syncCode">
+        <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" testLevel="RunSpecifiedTests" rollbackOnError="true">
+    </target>
+
     <!-- <target name="pushProfiles">
         <delete dir="retrievedProfiles/applications"/>
         <delete dir="retrievedProfiles/classes"/>

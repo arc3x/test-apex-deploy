@@ -13,9 +13,12 @@ def load_classes():
     return files;
 
 
+# verify src folder exists
+if not os.path.isdir('src'):
+    quit(0)
 
 # open file
-text_file = open("package.xml", "w")
+text_file = open("src/package.xml", "w")
 # write headers
 text_file.write('<?xml version="1.0" encoding="UTF-8"?>\n')
 text_file.write('<Package xmlns="http://soap.sforce.com/2006/04/metadata">\n')
