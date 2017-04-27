@@ -24,10 +24,15 @@ def write_xml(file_in, name_in, list_in):
     file_in.write('\t\t<name>'+name_in+'</name>\n')
     file_in.write('\t</types>\n')
 
+
+
+###
+# main
+###
+
 # verify src folder exists
 if not os.path.isdir('src'):
     quit(0)
-
 # open file
 text_file = open("src/package.xml", "w")
 # write headers
@@ -37,17 +42,16 @@ text_file.write('<Package xmlns="http://soap.sforce.com/2006/04/metadata">\n')
 classes = load('src/classes', '.cls')
 write_xml(text_file, 'ApexClass', classes)
 print classes
+# write triggers
 triggers = load('src/triggers', '.trigger')
 write_xml(text_file, 'ApexTrigger', triggers)
 print triggers
+#write pages
 pages = load('src/pages', '.page')
 write_xml(text_file, 'ApexPage', pages)
 print pages
 # close package
 text_file.write('\t<version>39.0</version>\n')
 text_file.write('</Package>\n')
-
+# done
 text_file.close()
-
-
-#text_file.write("Purchase Amount: %s" % TotalAmount)
