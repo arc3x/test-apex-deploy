@@ -4,6 +4,7 @@ from os import walk
 def load(path, ext):
     if os.path.isdir(path):
         files = []
+        out = []
         for (dirpath, dirnames, filenames) in walk(path):
             files.extend(filenames)
             break
@@ -11,11 +12,12 @@ def load(path, ext):
             print f
             print os.path.splitext(os.path.basename(f))[1]
             #if (not f.endswith(ext)) or f.endswith('.meta'):
-            if os.path.splitext(os.path.basename(f))[1] != ext:
+            if os.path.splitext(os.path.basename(f))[1] == ext:
                 print 'removing '+f
                 files.remove(f);
+                out.append(f)
 
-    return files;
+    return out;
 
 def write_xml(file_in, name_in, list_in):
     if len(list_in) == 0:
