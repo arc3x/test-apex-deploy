@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+    <!-- Field Level Security (standard objects) -->
+    <types>
+        <members>Account</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Contact</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Lead</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Opportunity</members>
+        <name>CustomObject</name>
+    </types>
+
+
+    <!-- Field Level Security (all custom objects) -->
+    <types>
+        <members>*</members>
+        <name>CustomObject</name>
+    </types>
+
+    <!-- Org Security (Do we want this?) -->
+    <types>
+       <members>Security</members>
+       <name>Settings</name>
+   </types>
+
+    <!-- Application Permissions -->
+    <types>
+        <members>*</members>
+        <name>CustomApplication</name>
+    </types>
+
+    <!-- Tab Permissions -->
+    <types>
+         <members>*</members>
+         <name>CustomTab</name>
+     </types>
+
+     <!-- Apex Page Permissions -->
+     <types>
+         <members>*</members>
+         <name>ApexPage</name>
+     </types>
+
+     <!-- Apex Class Permissions -->
+     <types>
+         <members>*</members>
+         <name>ApexClass</name>
+     </types>
+
+     <!-- Which Profiles -->
+     <types>
+         <members>*</members>
+         <name>Profile</name>
+     </types>
+     <version>39.0</version>
+</Package>
