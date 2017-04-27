@@ -24,7 +24,7 @@
     </target>
 
     <target name="syncCode">
-        <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" testLevel="RunSpecifiedTests" rollbackOnError="true">
+        <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" testLevel="NoTestRun" rollbackOnError="true">
         </sf:deploy>
     </target>
 
