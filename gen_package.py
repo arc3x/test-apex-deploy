@@ -1,24 +1,20 @@
 import os
 from os import walk
 
+# returns a list of all files in path who have extention ext
 def load(path, ext):
     if os.path.isdir(path):
         files = []
-        out = []
         for (dirpath, dirnames, filenames) in walk(path):
             files.extend(filenames)
             break
+        out = []
         for f in files:
-            print f
-            print os.path.splitext(os.path.basename(f))[1]
-            #if (not f.endswith(ext)) or f.endswith('.meta'):
             if f.endswith(ext):
-                #print 'removing '+f
-                #files.remove(f);
                 out.append(f)
-
     return out;
 
+# writes a name_in xml block to file_in iterating over values from list_in
 def write_xml(file_in, name_in, list_in):
     if len(list_in) == 0:
         return 0
@@ -43,7 +39,8 @@ write_xml(text_file, 'ApexClass', classes)
 print classes
 triggers = load('src/triggers', '.trigger')
 write_xml(text_file, 'ApexTrigger', triggers)
-
+pages = load('src/pages', '.page')
+write_xml(text_file, 'ApexPage', pages)
 # close package
 text_file.write('\t<version>39.0</version>\n')
 text_file.write('</Package>\n')
