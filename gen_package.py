@@ -12,6 +12,7 @@ def load(path, ext):
             print os.path.splitext(os.path.basename(f))[1]
             #if (not f.endswith(ext)) or f.endswith('.meta'):
             if os.path.splitext(os.path.basename(f))[1] != ext:
+                print 'removing '+f
                 files.remove(f);
 
     return files;
