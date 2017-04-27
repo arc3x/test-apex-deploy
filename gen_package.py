@@ -8,8 +8,9 @@ def load(path, ext):
             files.extend(filenames)
             break
         for f in files:
-            if not f.endswith(ext):
-                files.remove(f);
+            if (not f.endswith(ext)) || f.endswith('.meta'):
+                files.remove(f);            
+
     return files;
 
 def write_xml(file_in, name_in, list_in):
