@@ -8,8 +8,8 @@ def load(path, ext):
             files.extend(filenames)
             break
         for f in files:
-            if (not f.endswith(ext)) || f.endswith('.meta'):
-                files.remove(f);            
+            if (not f.endswith(ext)) or f.endswith('.meta'):
+                files.remove(f);
 
     return files;
 
