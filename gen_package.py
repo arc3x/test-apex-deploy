@@ -44,7 +44,7 @@ def zip_to_static_resource(dir_to_zip, zip_name, dest):
     shutil.make_archive(zip_name, 'zip', dir_to_zip)
     shutil.move(zip_name+'.zip', full_dest_path+'/'+zip_name+'.resource')
     # generate metadata for zip in non existant
-    if not os.path.isdir(full_dest_path+'/'+zip_name+'.resource-meta.xml'):
+    if not os.path.exists(full_dest_path+'/'+zip_name+'.resource-meta.xml'):
         text_file = open(full_dest_path+'/'+zip_name+'.resource-meta.xml', "w")
         text_file.write('<?xml version="1.0" encoding="UTF-8"?>\n')
         text_file.write('<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">\n')
