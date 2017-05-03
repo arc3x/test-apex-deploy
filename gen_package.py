@@ -1,4 +1,6 @@
-#import zipfile
+## ABSTRACT
+## Contrives a package.xml file dynamically for sf-ant code deploy 
+
 import shutil
 import os
 from os import walk
