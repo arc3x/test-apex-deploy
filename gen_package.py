@@ -41,13 +41,17 @@ def zip_to_static_resource(dir_to_zip, zip_name, dest):
     if os.path.isdir(dest) and not os.path.isdir(full_dest_path):
         os.makedirs(full_dest_path)
     # zip dir
-    # zipf = zipfile.ZipFile(name, 'w', zipfile.ZIP_DEFLATED)
-    # for root, dirs, files in os.walk(dir_to_zip):
-    #     for file in files:
-    #         zipf.write(os.path.join(root, file))
-    # zipf.close()
     shutil.make_archive(zip_name, 'zip', dir_to_zip)
     shutil.move(zip_name+'.zip', full_dest_path+'/'+zip_name+'.resource')
+    # generate metadata for zip
+    text_file = open(full_dest_path+'/'+zip_name+'.resource-meta.xml', "w")
+    text_file.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+    text_file.write('<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">\n')
+    text_file.write('\t<cacheControl>Public</cacheControl>\n')
+    text_file.write('\t<contentType>application/zip</contentType>\n')
+    text_file.write('</StaticResource>\n')
+    text_file.close()
+    
 
 
 
